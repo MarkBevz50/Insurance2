@@ -66,7 +66,7 @@ int calculateTotalPrice(insurance** insurances, size_t size)
 
     for (size_t i = 1; i < size; ++i)
     {
-        if (*insurances[i] < *mostExpensive)
+        if (*mostExpensive < *insurances[i])
         {
             mostExpensive = insurances[i];
         }
