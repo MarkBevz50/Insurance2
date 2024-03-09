@@ -27,6 +27,9 @@
     <ClCompile Include="VehicleInsurance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Class utilities.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Insurance.h">
@@ -38,5 +41,13 @@
     <ClInclude Include="VehicleInsurance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Class utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Insurances.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -3,10 +3,13 @@
 
 class VehicleInsurance : public insurance {
 private:
+    std::string vehicle_name;
     double engine_volume;
 
 public:
-    VehicleInsurance(int base_price, double engine_volume);
+    static const char VEHICLE_TYPE = 'V';
+    VehicleInsurance();
+    VehicleInsurance(std::string vehicle_name,int base_price, double engine_volume);
     ~VehicleInsurance() override;
 
     int calcFullPrice() const override;

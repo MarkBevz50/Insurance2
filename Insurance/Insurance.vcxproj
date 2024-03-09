@@ -127,15 +127,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Class utilities.cpp" />
     <ClCompile Include="FamilyInsurance.cpp" />
     <ClCompile Include="Insurance.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="VehicleInsurance.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Class utilities.h" />
     <ClInclude Include="FamilyInsurance.h" />
     <ClInclude Include="Insurance.h" />
     <ClInclude Include="VehicleInsurance.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Insurances.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
