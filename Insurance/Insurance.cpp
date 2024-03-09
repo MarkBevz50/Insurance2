@@ -40,4 +40,8 @@ bool insurance::operator<(const insurance& i) const
 {
     return calcFullPrice() < i.calcFullPrice();
 }
+//bool insurance::operator>(const insurance& i) const
+//{
+//    return calcFullPrice() > i.calcFullPrice();
+//}
 

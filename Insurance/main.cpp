@@ -7,18 +7,14 @@
 int main()
 {
     size_t size;
-    std::ifstream defineSize("Insurances.txt");
-    defineSize >> size;
-    insurance** arr = new insurance * [size];
-    defineSize.close();
+    insurance** arr = readInsuranceFromFile("Insurances.txt", size);
 
-    readInsuranceFromFile("Insurances.txt", arr, size);
     printInsurances(arr, size);
 
     int totalCost = calculateTotalPrice(arr, size);
     std::cout << "Total Cost of Insurances: " << totalCost << std::endl;
 
-    const insurance* mostExpensive = findMostExpensive(arr, size);
+     insurance* mostExpensive = findMostExpensive(arr, size);
     if (mostExpensive)
     {
         std::cout << "Most Expensive Insurance: ";

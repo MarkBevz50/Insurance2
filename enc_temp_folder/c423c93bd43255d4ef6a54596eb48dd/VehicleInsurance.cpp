@@ -17,7 +17,7 @@ int VehicleInsurance::calcFullPrice() const {
         additionalCost += getPrice() * 0.15;
     }
 
-    else if (engine_volume > 3.0) {
+    if (engine_volume > 3.0) {
         additionalCost += getPrice() * 0.25;
     }
 

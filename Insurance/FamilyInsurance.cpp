@@ -20,10 +20,10 @@ void FamilyInsurance::printInfo() const {
 }
 
 void FamilyInsurance::readFrom(std::istream& in) {
-    in >> family_surname, family_members;
+    in >> family_surname >> family_members >> base_price;
 }
 
 void FamilyInsurance::writeTo(std::ostream& out) const {
-    out << family_surname, family_members;
+    out << family_surname<< family_members << base_price;
 }
 

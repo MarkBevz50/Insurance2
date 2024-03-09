@@ -1,14 +1,15 @@
 #include "Class utilities.h"
-void readInsuranceFromFile(const std::string& filename, insurance** insurances, size_t size)
+insurance** readInsuranceFromFile(const std::string& filename, size_t &size)
 {
     std::ifstream file(filename);
-
     if (!file.is_open())
     {
         std::cerr << "Unable to open file: " << filename << std::endl;
-        return;
+        return nullptr;
     }
+    file >> size;
     char insuranceType;
+    insurance** arr = new insurance * [size];
     for (size_t i = 0; i < size; ++i)
     {
         file >> insuranceType;
@@ -26,15 +27,16 @@ void readInsuranceFromFile(const std::string& filename, insurance** insurances, 
 
         if (prototype)
         {
-            insurances[i] = prototype->clone();
-            insurances[i]->readFrom(file);
+            arr[i] = prototype->clone();
+            arr[i]->readFrom(file);
             delete prototype;
         }
     }
 
     file.close();
+    return arr;
 }
-void printInsurances(const insurance** insurances, size_t size)
+void printInsurances(insurance** insurances, size_t size)
 {
     std::cout << "List of Insurances:" << std::endl;
     for (size_t i = 0; i < size; ++i)
@@ -44,7 +46,7 @@ void printInsurances(const insurance** insurances, size_t size)
     std::cout << std::endl;
 }
 
-int calculateTotalPrice(const insurance** insurances, size_t size)
+int calculateTotalPrice(insurance** insurances, size_t size)
 {
     int totalCost = 0;
     for (size_t i = 0; i < size; ++i)
@@ -53,15 +55,14 @@ int calculateTotalPrice(const insurance** insurances, size_t size)
     }
     return totalCost;
 }
-
-const insurance* findMostExpensive(const insurance** insurances, size_t size)
+ insurance* findMostExpensive( insurance** insurances, size_t size)
 {
     if (size == 0)
     {
         return nullptr;
     }
 
-    const insurance* mostExpensive = insurances[0];
+    insurance* mostExpensive =  insurances[0]->clone();
 
     for (size_t i = 1; i < size; ++i)
     {
@@ -71,10 +72,10 @@ const insurance* findMostExpensive(const insurance** insurances, size_t size)
         }
     }
 
-    return mostExpensive;
+    return mostExpensive->clone();
 }
 
-const insurance* findCheapest(const insurance** insurances, size_t size)
+ insurance* findCheapest( insurance** insurances, size_t size)
 {
     if (size == 0)
     {
@@ -91,5 +92,5 @@ const insurance* findCheapest(const insurance** insurances, size_t size)
         }
     }
 
-    return cheapest;
+    return cheapest->clone();
 }

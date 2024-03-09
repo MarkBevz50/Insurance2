@@ -1,10 +1,10 @@
 #pragma once
 #include <iostream>
-#include <string>
+
 #include <fstream>
 class  insurance  
 {
-private:
+protected:
 	int base_price;
 public:
 	insurance() ;
@@ -15,6 +15,7 @@ public:
 	int getPrice()const;
 	virtual void printInfo()const abstract;
 	bool operator < (const insurance& i) const;
+	/*bool operator>(const insurance& i) const*/
 	virtual void readFrom(std::istream& in) abstract;
 	virtual int calcFullPrice() const abstract;
 	virtual void writeTo(std::ostream& out) const abstract;
